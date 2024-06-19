@@ -1,0 +1,81 @@
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.logo {
+    /* Optional: Define size or other styles for your logo */
+    height: 100px; /* Example size */
+    border-radius: 50%;
+    transition:0.3s ease;
+}
+.logo:hover{
+    filter: brightness(85%);
+}
+
+.Links {
+    display: flex;
+    justify-content: space-between; /* If you want equal spacing between the links */
+    min-width: 300px; /* Adjust based on your specific needs */
+    font-size: larger;
+    
+}
+.Links a{
+    color: whitesmoke;
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold; /* Makes the font bold */
+    padding: 10px; /* Adds padding around the text for better spacing and clickable area */
+    margin: 0 20px; /* Adds horizontal spacing between the links */
+    transition: color 0.3s; /* Smooth transition for hover effects */
+}
+.Links a:hover{
+    color:gray;
+}
+
+.Info{
+    border: solid 2px gray;
+    border-radius: 15px;
+    color:whitesmoke;
+    width: 75%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    font-size: larger;
+}
+.InfoContainer{
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 60vh; /* Takes full viewport height */
+}
+
+.footer{
+    display: flex;
+    justify-content: center; /* Spreads out items evenly with space around them */
+    align-items: center; /* Align items vertically in the center */
+    /* position: fixed; Fixes the footer at the bottom */
+    left: 0;
+    right: 0;
+    margin-top: 20px;
+    padding: 10px; /* Add some padding for aesthetics */
+    
+}
+
+.footer > * { /* Selects all direct children of .footer */
+    margin: 0 25px; /* Adds horizontal margin to each side */
+}
+
+/* Target the SVG element with the class .bi-twitter-x */
+.social {
+    transition:0.3s ease; /* Smooth transition for the fill color change */
+}
+
+/* Apply the hover effect */
+.social:hover {
+    filter: brightness(150%); /* Increase brightness on hover */
+}
+
