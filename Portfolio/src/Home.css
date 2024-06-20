@@ -1,126 +1,135 @@
-/* Home.css */
-
 body {
-    background: rgb(48,69,87);
-    background: linear-gradient(90deg, rgba(48,69,87,1) 35%, rgba(2,0,36,1) 100%);
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  .NavBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 50px;
-    padding-left: 10px;
-    margin-top: 20px;
-  }
-  
-  .logo {
-    height: 100px; /* Example size */
-    border-radius: 50%;
-    transition: 0.3s ease;
-  }
-  
-  .logo:hover {
-    filter: brightness(85%);
-  }
-  
-  .Links {
-    display: flex;
-    justify-content: space-between; /* If you want equal spacing between the links */
-    min-width: 300px; /* Adjust based on your specific needs */
-    font-size: larger;
-  }
-  
-  .Links a {
-    color: whitesmoke;
-    text-decoration: none; /* Removes underline from links */
-    font-weight: bold; /* Makes the font bold */
-    padding: 10px; /* Adds padding around the text for better spacing and clickable area */
-    margin: 0 20px; /* Adds horizontal spacing between the links */
-    transition: color 0.3s; /* Smooth transition for hover effects */
-  }
-  
-  .Links a:hover {
-    color: gray;
-  }
-  
-  /* Styling for the tab buttons */
-  .tab-button {
-    position: relative;
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    color: whitesmoke;
-  }
-  
-  .tab-button::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: whitesmoke;
-    transition: width 0.6s ease, left 0.6s ease;
-  }
-  
-  .tab-button:hover::after {
-    width: 80%;
-    left: 10%;
-  }
-  
-  /* Container for the tab content with relative positioning */
-  .tab-content {
-    position: relative;
-    overflow: hidden;
-    height: auto; /* Adjust height as needed */
-    padding: 20px;
-  }
-  
-  /* Slide transition for tab content */
-  .slide-fade-enter {
-    transform: translateX(100%);
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .slide-fade-enter-active {
-    transform: translateX(0);
-    opacity: 1;
-    transition: transform 500ms ease-out, opacity 500ms ease-out;
-  }
-  
-  .slide-fade-exit {
-    transform: translateX(0);
-    opacity: 1;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .slide-fade-exit-active {
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: transform 500ms ease-out, opacity 500ms ease-out;
-  }
+  background: rgb(48,69,87);
+  background: linear-gradient(90deg, rgba(48,69,87,1) 35%, rgba(2,0,36,1) 100%);
+  font-family: 'Open Sans', sans-serif;
+}
 
-  .content-wrapper-enter {
-    opacity: 0;
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.logo {
+  height: 100px; /* Example size */
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.logo:hover {
+  filter: brightness(85%);
+}
+
+.Links {
+  display: flex;
+  justify-content: space-between; /* If you want equal spacing between the links */
+  min-width: 300px; /* Adjust based on your specific needs */
+  font-size: larger;
+}
+
+.Links a {
+  color: whitesmoke;
+  text-decoration: none; /* Removes underline from links */
+  font-weight: bold; /* Makes the font bold */
+  padding: 10px; /* Adds padding around the text for better spacing and clickable area */
+  margin: 0 20px; /* Adds horizontal spacing between the links */
+  transition: color 0.3s; /* Smooth transition for hover effects */
+}
+
+.Links a:hover {
+  color: gray;
+}
+
+/* Styling for the tab buttons */
+.tab-button {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: whitesmoke;
+}
+
+.tab-button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: whitesmoke;
+  transition: width 0.6s ease, left 0.6s ease;
+}
+
+.tab-button:hover::after {
+  width: 80%;
+  left: 10%;
+}
+
+.content-wrapper {
+  min-height: 200px; /* Set a minimum height to prevent resizing */
+  padding: 10px; /* Ensure consistent padding */
+}
+
+.animate__animated {
+  --animate-duration: 1.5s; /* Set the animation duration */
+}
+/* Global styles */
+
+
+/* Keyframes for animation */
+@keyframes clipMe {
+  0%, 100% {
+    clip: rect(0px, 100%, 2px, 0px);
   }
-  
-  .content-wrapper-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-out;
+  25% {
+    clip: rect(0px, 2px, 100%, 0px);
   }
-  
-  .content-wrapper-exit {
-    opacity: 1;
+  50% {
+    clip: rect(100% - 2px, 100%, 100%, 0px);
   }
-  
-  .content-wrapper-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-out;
+  75% {
+    clip: rect(0px, 100%, 100%, 100% - 2px);
   }
+}
+
+/* Animated border styles */
+.bb-wrapper {
+  position: relative;
+}
+
+.bb {
+  position: relative;
+  color: #69ca62;
+  box-shadow: inset 0 0 0 1px rgba(105, 202, 98, 0.5);
+  overflow: hidden;
+}
+
+.bb::before,
+.bb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  margin: -5%;
+  box-shadow: inset 0 0 0 2px;
+  animation: clipMe 8s linear infinite;
+}
+
+.bb::before {
+  animation-delay: -4s;
+}
+
+.bb:hover::after,
+.bb:hover::before {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+

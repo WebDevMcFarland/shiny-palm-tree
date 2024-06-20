@@ -1,38 +1,77 @@
-import Logo from "./assets/Logo5.png";
-import LinkedIn from "./assets/linkedin.svg"
-import GitHub from "./assets/github.svg"
-import Twitter from "./assets/twitter-x.svg"
-import "./Contact.css";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+import './Contact.css';
 
+function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-function Contact(){
-    return(
-       <div>
-        {/* <nav className="NavBar">
-      <Link to="/" className="logo-link">
-                <img src={Logo} alt="Logo" className="logo" />
-            </Link>
-        <span className="Links">
-          <Link to="/">Home</Link>
-          <Link to="/About">About</Link>
-          <Link to="/Projects">Projects</Link>
-        </span>
-      </nav> */}
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-      <footer className="footer">
-    <a href="https://www.linkedin.com/in/jacob-s-mcfarland" target="_blank">
-        <img src={LinkedIn} alt="LinkedIn Profile" className="social"/>
-    </a>
-    <a href="https://github.com/WebDevMcFarland" target="_blank">
-        <img src={GitHub} alt="GitHub Profile" className="social"/>
-    </a>
-    <a href="https://twitter.com/WebDevMac" target="_blank">
-        <img src={Twitter} alt="Twitter Profile" className="social"/>
-    </a>
-    </footer>
-       </div> 
-    )
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
     
-    export default Contact;
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_USER_ID')
+      .then((result) => {
+          console.log(result.text);
+          alert('Message sent successfully!');
+          setFormData({ name: '', email: '', message: '' });
+      }, (error) => {
+          console.log(error.text);
+          alert('Failed to send the message, please try again later.');
+      });
+  };
+
+  return (
+    <div className='content-wrapper'>
+      <div className="InfoContainer">
+        <div className="Info">
+          <h1>Contact Me</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                value={formData.name} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                value={formData.email} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                value={formData.message} 
+                onChange={handleChange} 
+                required 
+              ></textarea>
+            </div>
+            <button className='submit-button' type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Contact;

@@ -1,7 +1,4 @@
 import React from 'react';
-import LinkedIn from "./assets/linkedin.svg";
-import GitHub from "./assets/github.svg";
-import Twitter from "./assets/twitter-x.svg";
 import "./HomeContent.css"; // Import the specific CSS file for HomeContent
 
 const HomeContent = () => {
@@ -27,17 +24,6 @@ const HomeContent = () => {
           </p>
         </div>
       </div>
-      <footer className="footer">
-        <a href="https://www.linkedin.com/in/jacob-s-mcfarland" target="_blank" rel="noopener noreferrer">
-          <img src={LinkedIn} alt="LinkedIn Profile" className="social"/>
-        </a>
-        <a href="https://github.com/WebDevMcFarland" target="_blank" rel="noopener noreferrer">
-          <img src={GitHub} alt="GitHub Profile" className="social"/>
-        </a>
-        <a href="https://twitter.com/WebDevMac" target="_blank" rel="noopener noreferrer">
-          <img src={Twitter} alt="Twitter Profile" className="social"/>
-        </a>
-      </footer>
     </div>
   );
 };
